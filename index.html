@@ -6,6 +6,12 @@
     <meta name="description" content="Jason Link - AVP Strategy & Growth Leader | Product Management & Digital Transformation Executive">
     <meta name="keywords" content="Jason Link, Product Management, Growth Strategy, Digital Transformation, M&A, Tech Executive">
     <title>Jason Link | Growth & Product Strategy Leader</title>
+    <!-- 
+    To use your own beach/ocean image:
+    1. Upload your image to a hosting service (GitHub, Imgur, etc.)
+    2. Replace the URL in the .hero background-image property below
+    3. Or convert your image to base64 and use: background-image: url('data:image/jpeg;base64,YOUR_BASE64_STRING');
+    -->
     <style>
         * {
             margin: 0;
@@ -14,16 +20,20 @@
         }
 
         :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
+            --primary: #0891b2;
+            --primary-dark: #0e7490;
             --secondary: #06b6d4;
+            --ocean-deep: #164e63;
+            --ocean-mid: #22d3ee;
+            --sand: #fef3c7;
+            --sand-light: #fef9e7;
             --dark: #0f172a;
             --dark-light: #1e293b;
             --gray: #64748b;
-            --light: #f1f5f9;
+            --light: #f0fdfa;
             --white: #ffffff;
-            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-alt: linear-gradient(135deg, #06b6d4 0%, #6366f1 100%);
+            --gradient: linear-gradient(135deg, #0891b2 0%, #164e63 100%);
+            --gradient-alt: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
         }
 
         body {
@@ -63,7 +73,7 @@
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
-            background: var(--gradient-alt);
+            background: linear-gradient(135deg, var(--ocean-mid) 0%, var(--primary) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-decoration: none;
@@ -84,7 +94,7 @@
         }
 
         .nav-links a:hover {
-            color: var(--primary);
+            color: var(--ocean-deep);
         }
 
         .nav-links a::after {
@@ -94,7 +104,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--primary);
+            background: linear-gradient(90deg, var(--ocean-mid), var(--primary));
             transition: width 0.3s ease;
         }
 
@@ -123,7 +133,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-image: url('images/IMG_6679horiz.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             position: relative;
             overflow: hidden;
         }
@@ -131,24 +144,37 @@
         .hero::before {
             content: '';
             position: absolute;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: moveGrid 20s linear infinite;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(8, 145, 178, 0.7) 0%, rgba(22, 78, 99, 0.8) 100%);
+            z-index: 1;
         }
 
-        @keyframes moveGrid {
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="waves" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M0 50 Q25 30 50 50 T100 50" stroke="rgba(255,255,255,0.1)" stroke-width="0.5" fill="none"/></pattern></defs><rect width="100" height="100" fill="url(%23waves)"/></svg>');
+            opacity: 0.3;
+            animation: drift 20s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes drift {
             0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
+            100% { transform: translate(100px, -100px); }
         }
 
         .hero-content {
             text-align: center;
             color: var(--white);
-            z-index: 1;
+            z-index: 2;
             padding: 0 2rem;
             animation: fadeInUp 1s ease;
+            position: relative;
         }
 
         @keyframes fadeInUp {
@@ -166,12 +192,14 @@
             font-size: 3.5rem;
             margin-bottom: 1rem;
             font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .hero .subtitle {
             font-size: 1.5rem;
             margin-bottom: 2rem;
             opacity: 0.95;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
         }
 
         .hero-buttons {
@@ -194,12 +222,13 @@
 
         .btn-primary {
             background: var(--white);
-            color: var(--primary);
+            color: var(--ocean-deep);
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            background: var(--sand-light);
         }
 
         .btn-secondary {
@@ -209,8 +238,10 @@
         }
 
         .btn-secondary:hover {
-            background: var(--white);
-            color: var(--primary);
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border-color: var(--sand-light);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
         }
 
         /* Section Styles */
@@ -236,12 +267,24 @@
             transform: translateX(-50%);
             width: 50px;
             height: 3px;
-            background: var(--gradient-alt);
+            background: linear-gradient(90deg, var(--ocean-mid), var(--primary));
         }
 
         /* About Section */
         .about {
-            background: var(--light);
+            background: linear-gradient(180deg, var(--sand-light) 0%, var(--light) 100%);
+            position: relative;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100"><path fill="%23fef9e7" d="M0,50 C360,100 1080,0 1440,50 L1440,100 L0,100 Z"/></svg>');
+            background-size: cover;
         }
 
         .about-content {
@@ -273,7 +316,7 @@
         .stat-number {
             font-size: 2rem;
             font-weight: 700;
-            background: var(--gradient-alt);
+            background: linear-gradient(135deg, var(--ocean-mid) 0%, var(--primary) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -290,7 +333,7 @@
 
         .about-text h3 {
             margin-bottom: 1rem;
-            color: var(--primary);
+            color: var(--ocean-deep);
         }
 
         /* Experience Section */
@@ -306,7 +349,7 @@
             top: 0;
             height: 100%;
             width: 2px;
-            background: var(--gradient-alt);
+            background: linear-gradient(180deg, var(--ocean-mid), var(--primary), var(--ocean-deep));
         }
 
         .experience-item {
@@ -316,11 +359,14 @@
             padding: 2rem;
             border-radius: 10px;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 3px solid transparent;
         }
 
         .experience-item:hover {
             transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(8, 145, 178, 0.2);
+            border-left: 3px solid var(--ocean-mid);
         }
 
         .experience-item::before {
@@ -331,8 +377,9 @@
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            background: var(--primary);
+            background: var(--ocean-mid);
             border: 3px solid var(--white);
+            box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.2);
         }
 
         .experience-header {
@@ -344,7 +391,7 @@
         }
 
         .experience-title {
-            color: var(--primary);
+            color: var(--ocean-deep);
             font-size: 1.3rem;
             font-weight: 600;
         }
@@ -357,7 +404,7 @@
         .experience-date {
             color: var(--gray);
             font-size: 0.9rem;
-            background: var(--light);
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(8, 145, 178, 0.1));
             padding: 0.3rem 1rem;
             border-radius: 20px;
         }
@@ -383,12 +430,29 @@
             content: '▸';
             position: absolute;
             left: 0;
-            color: var(--primary);
+            color: var(--ocean-mid);
         }
 
         /* Skills Section */
         .skills {
-            background: var(--light);
+            background: linear-gradient(180deg, var(--light) 0%, #e0f2fe 100%);
+            position: relative;
+        }
+
+        .skills::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--ocean-mid), transparent);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
         }
 
         .skills-grid {
@@ -402,15 +466,18 @@
             padding: 2rem;
             border-radius: 10px;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid transparent;
         }
 
         .skill-category:hover {
             transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(8, 145, 178, 0.2);
+            border: 1px solid rgba(6, 182, 212, 0.2);
         }
 
         .skill-category h3 {
-            color: var(--primary);
+            color: var(--ocean-deep);
             margin-bottom: 1.5rem;
             font-size: 1.2rem;
         }
@@ -422,12 +489,13 @@
         }
 
         .skill-tag {
-            background: var(--gradient-alt);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--ocean-deep) 100%);
             color: var(--white);
             padding: 0.5rem 1rem;
             border-radius: 20px;
             font-size: 0.9rem;
             transition: transform 0.3s ease;
+            box-shadow: 0 2px 5px rgba(8, 145, 178, 0.2);
         }
 
         .skill-tag:hover {
@@ -448,14 +516,16 @@
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
             border-top: 3px solid var(--primary);
+            border-image: linear-gradient(90deg, var(--ocean-mid), var(--primary)) 1;
         }
 
         .education-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(8, 145, 178, 0.2);
         }
 
         .education-card h3 {
-            color: var(--primary);
+            color: var(--ocean-deep);
             margin-bottom: 0.5rem;
         }
 
@@ -471,13 +541,38 @@
 
         /* Contact Section */
         .contact {
-            background: var(--gradient);
+            background: linear-gradient(135deg, var(--ocean-deep) 0%, var(--primary) 100%);
             color: var(--white);
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="ocean-pattern" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse"><circle cx="100" cy="100" r="2" fill="rgba(255,255,255,0.1)"/><path d="M0 100 Q50 80 100 100 T200 100" stroke="rgba(255,255,255,0.05)" fill="none"/></pattern></defs><rect width="200" height="200" fill="url(%23ocean-pattern)"/></svg>');
+            animation: wave 15s linear infinite;
+        }
+
+        @keyframes wave {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(50%); }
         }
 
         .contact .section-title {
             color: var(--white);
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact p {
+            position: relative;
+            z-index: 1;
         }
 
         .contact-links {
@@ -486,6 +581,8 @@
             gap: 2rem;
             flex-wrap: wrap;
             margin-top: 2rem;
+            position: relative;
+            z-index: 1;
         }
 
         .contact-link {
@@ -501,17 +598,30 @@
         }
 
         .contact-link:hover {
-            background: var(--white);
-            color: var(--primary);
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
             transform: translateY(-3px);
+            border-color: var(--ocean-mid);
+            box-shadow: 0 5px 15px rgba(6, 182, 212, 0.3);
         }
 
         /* Footer */
         footer {
-            background: var(--dark);
+            background: var(--ocean-deep);
             color: var(--white);
             text-align: center;
             padding: 2rem;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--ocean-mid), transparent);
         }
 
         /* Responsive Design */
@@ -600,6 +710,7 @@
     </nav>
 
     <!-- Hero Section -->
+    <!-- To use your own beach image, replace the background-image URL in the .hero CSS class above -->
     <section class="hero" id="home">
         <div class="hero-content">
             <h1>Jason C. Link</h1>
@@ -679,7 +790,7 @@
                     <p>Oversaw strategic portfolio and marketing execution for $150M business unit.</p>
                     <ul class="experience-highlights">
                         <li>Created and implemented business strategy for market penetration achieving above-market growth</li>
-                        <li>Managed team of ~15 product managers and marketing scientists</li>
+                        <li>Managed team of 11+ product managers and marketing scientists</li>
                         <li>Drove portfolio profitability through discount management and mix optimization</li>
                         <li>Developed multi-year strategic product pipeline including partnerships and collaborations</li>
                     </ul>
